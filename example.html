@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="plunker">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://code.angularjs.org/1.5.4/angular.js"></script>
+  <link href="../spark2/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../spark2/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body ng-controller="MainCtrl">
+  <input type="text " ng-model="name" >
+  <div dynamic="obj"></div>
+
+  <script src="./ngJsonHtml.js" type="text/javascript"></script>
+  <script>
+    var app = angular.module('plunker', ['ng-json-html']);
+
+    app.controller('MainCtrl', function($scope) {
+        $scope.name = 'World';
+        $scope.obj = { 
+            "h1|.bg-warning|ng-if='name!=\"word\"'":"{{ name }}", 
+            div:{ "h4":'Sub Item', 'p':"Descrição etc e tal"}, 
+            'ul|.list-group':[
+            {'li|.list-group-item':{ "a":"item 1", "i|.'fa fa-plus'":"icon"} }, 
+            {'li|.list-group-item':"item 2"}
+            ]  
+        };
+    });
+
+  </script>
+</body>
+</html>
