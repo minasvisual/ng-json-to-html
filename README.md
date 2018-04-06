@@ -4,7 +4,7 @@ Convert json to html tags and angular compile data
 #usage
 clone repository
 <pre>
-    git clone https://github.com/minasvisual/ng-json-html.git
+git clone https://github.com/minasvisual/ng-json-html.git
 </pre>
 
 Add script after your angular import
@@ -14,10 +14,39 @@ Add script after your angular import
 
 Import modulo on angular app
 <pre>
-    var app = angular.module('myApp', ['ng-json-html']);
+var app = angular.module('myApp', ['ng-json-html']);
+</pre>
+
+create your json tree
+<pre>
+$scope.myJson = { 
+    "h1|.bg-warning|#title":"{{ nameVar }}", 
+    "div|ng-if='nameVar != \"Hello World\"' ":{ 
+        "h4":'Sub Item', 
+        'p':"Descrição etc e tal"
+    }, 
+    'ul|.list-group':[
+        {'li|.list-group-item':
+            { "a":"item 1", "i|.'fa fa-plus'":"icon"} 
+        }, 
+        {'li|.list-group-item':"item 2"}
+    ]  
+};
 </pre>
 
 Set dynamic attribute on your content div
 <pre>
-    <div dynamic="myjson"></div>
+\<div dynamic="myjson">\</div>
 </pre>
+
+Syntax:
+
+Object key:
+{
+    "<TAG name>|<attribute>|<attribute>|.." 
+}
+
+. = class=
+\# = id=
+\@ = href=
+<any> can be defined normaly <any>="<any>" 
