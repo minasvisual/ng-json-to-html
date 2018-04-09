@@ -4,26 +4,71 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <script src="https://code.angularjs.org/1.5.4/angular.js"></script>
-  <link href="../spark2/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../spark2/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  rel="stylesheet">
+
+  <link href="https://cdn.rawgit.com/josdejong/jsoneditor/master/dist/jsoneditor.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/sticky-footer-navbar.css" rel="stylesheet">
+  <style>
+    html, body{	height:100% }
+  </style>
 </head>
 <body ng-controller="MainCtrl">
-  <input type="text " ng-model="name" >
-  <div dynamic="obj"></div>
+  <div class="row" style="height:100%">
+    <div dynamic="obj" class="col-md-6"></div>
+    <div class="col-md-6" style="height:100%">
+        <div ng-jsoneditor="onLoad" ng-model="obj" options="options" class="col-md-12" style="height:100%"></div>
+        <button class="btn" ng-click="changeOptions()">Change View</button>
+    </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+
+  <script src="https://cdn.rawgit.com/josdejong/jsoneditor/master/dist/jsoneditor.min.js"></script>
+  <script src="https://cdn.rawgit.com/angular-tools/ng-jsoneditor/master/ng-jsoneditor.js"></script>
 
   <script src="./ngJsonHtml.js" type="text/javascript"></script>
   <script>
-    var app = angular.module('plunker', ['ng-json-html']);
+    var app = angular.module('plunker', ['ng-json-html', 'ng.jsoneditor']);
 
     app.controller('MainCtrl', function($scope) {
         $scope.name = 'World';
+        $scope.options = {mode: 'tree'};
         $scope.obj = { 
-            "h1|.bg-warning|ng-if='name!=\"word\"'":"{{ name }}", 
-            div:{ "h4":'Sub Item', 'p':"Descrição etc e tal"}, 
-            'ul|.list-group':[
-            {'li|.list-group-item':{ "a":"item 1", "i|.'fa fa-plus'":"icon"} }, 
-            {'li|.list-group-item':"item 2"}
-            ]  
+          "header": {
+          "nav|.[navbar navbar-expand-md navbar-dark bg-dark]": {
+              "a|@[#]|.[navbar-brand]": "Brand",
+              "button|.[navbar-toggler]|data-toggle=collapse|data-target=#navbarCollapse|type=button": {
+                "span|.[navbar-toggler-icon]": ""
+              },
+              "div|.[collapse navbar-collapse]|#[navbarCollapse]":{
+                "ul|.[navbar-nav]": [
+                  {"li|.[nav-item]|ng-repeat='val in arr'": {"a|.[nav-link]": "{{ val.name }}"}  }
+                ]
+              }
+            }
+          },
+          "main|.[container]": {
+            "h1|.[mt-5]": "Sticky footer with fixed navbar",
+            "p|.[lead]": "description text bla bla bla",
+            "p|#[1]": {
+              "a|@[#]": "Sticky footer link"
+            }
+          },
+          "footer|.[footer]": {
+            "div|.[container]": {
+              "span|.[text-muted]": "Place sticky footer"
+            }
+          }
+        };
+        
+        $scope.arr = [
+            {"id": 1, "name": "Ulisses"},
+            {"id": 2, "name": "Marcos"},
+            {"id": 3, "name": "Alexandre"},
+        ];
+        $scope.changeOptions = function () {
+                  $scope.options.mode = $scope.options.mode == 'tree' ? 'code' : 'tree';
         };
     });
 

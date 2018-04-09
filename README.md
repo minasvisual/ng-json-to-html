@@ -12,7 +12,7 @@ Add script after your angular import
 <script src="./ng-json-html/ngJsonHtml.js"></script>
 </pre>
 
-Import modulo on angular app
+Import module on angular app
 <pre>
 var app = angular.module('myApp', ['ng-json-html']);
 </pre>
@@ -20,16 +20,16 @@ var app = angular.module('myApp', ['ng-json-html']);
 create your json tree
 <pre>
 $scope.myJson = { 
-    "h1|.bg-warning|#title":"{{ nameVar }}", 
-    "div|ng-if='nameVar != \"Hello World\"' ":{ 
+    "h1|.[bg-warning]|#[title]":"{{ nameVar }}", 
+    "div|ng-if=[nameVar != 'Hello World']":{ 
         "h4":'Sub Item', 
         'p':"Descrição etc e tal"
     }, 
-    'ul|.list-group':[
-        {'li|.list-group-item':
-            { "a":"item 1", "i|.'fa fa-plus'":"icon"} 
+    'ul|.[list-group]':[
+        {'li|.[list-group-item]':
+            { "a":"item 1", "i|.[fa fa-plus]":"icon"} 
         }, 
-        {'li|.list-group-item':"item 2"}
+        {'li|.[list-group-item]':"item 2"}
     ]  
 };
 </pre>
@@ -46,7 +46,22 @@ Object key:
     "<TAG name>|<attribute>|<attribute>|.." 
 }
 
-. = class=
-\# = id=
-\@ = href=
-<any> can be defined normaly <any>="<any>" 
+.[] = class=""
+\#[] = id=""
+\@[] = href=""
+<any>[] can be defined normaly <any>="" 
+
+# Troubleshoot
+
+Object keys of json need to be unique in the same level of tree. Define a id or class to be unique in this case:
+
+<pre>
+{
+    "div|#[1]": "my div",
+    "div|#[2]": "my div 2"
+}
+</pre> 
+
+Author:
+Ulisses Mantovani <contato@minasvisual.com> 
+www.megagencia.com.br
