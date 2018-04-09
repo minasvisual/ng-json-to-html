@@ -1,7 +1,7 @@
 # ng-json-html
 Convert json to html tags and angular compile data
 
-#usage
+## usage
 clone repository
 <pre>
 git clone https://github.com/minasvisual/ng-json-html.git
@@ -39,7 +39,7 @@ Set dynamic attribute on your content div
 <div dynamic="myjson">\</div>
 ```
 
-Syntax:
+# Syntax:
 
 Object key:
 {
@@ -63,5 +63,5 @@ Object keys of json need to be unique in the same level of tree. Define a id or 
 </pre> 
 
 Author:
-Ulisses Mantovani <contato@minasvisual.com> 
+Ulisses Mantovani <contato@minasvisual.com> <br>
 www.megagencia.com.br
