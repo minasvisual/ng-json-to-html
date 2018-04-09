@@ -35,9 +35,9 @@ $scope.myJson = {
 </pre>
 
 Set dynamic attribute on your content div
-<pre>
-\<div dynamic="myjson">\</div>
-</pre>
+```xml
+<div dynamic="myjson">\</div>
+```
 
 Syntax:
 
@@ -46,10 +46,10 @@ Object key:
     "<TAG name>|<attribute>|<attribute>|.." 
 }
 
-.[] = class=""
-\#[] = id=""
-\@[] = href=""
-<any>[] can be defined normaly <any>="" 
+.[] = class=""<br>
+\#[] = id=""<br>
+\@[] = href=""<br>
+<any>[] can be defined normaly <any>=""
 
 # Troubleshoot
 
