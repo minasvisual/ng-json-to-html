@@ -1,6 +1,9 @@
 # ng-json-html
 Convert json to html tags and angular compile data
 
+## Demo
+http://megagencia.com.br/components/ngJsonToHtml.html
+
 ## usage
 clone repository
 <pre>
