@@ -2,7 +2,7 @@
 Convert json to html tags and angular compile data
 
 ## Demo
-http://megagencia.com.br/components/ngJsonToHtml.html
+https://minasvisual.github.io/ng-json-to-html/
 
 ## usage
 clone repository
@@ -66,5 +66,5 @@ Object keys of json need to be unique in the same level of tree. Define a id or 
 </pre> 
 
 Author:
-Ulisses Mantovani <contato@minasvisual.com> <br>
+Ulisses Mantovani <br><contato@minasvisual.com> <br>
 www.megagencia.com.br
